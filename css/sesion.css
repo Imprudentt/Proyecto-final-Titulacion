@@ -1,0 +1,182 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Fondo de imagen */
+  .login-background {
+    background-image: url('https://guerreroilustradora.wordpress.com/wp-content/uploads/2020/07/paisaje_guerrero_ilustradora_madrid_espac3b1a_disec3b1o_illustrator_2.jpg?w=1024    '); /* Reemplazar por la imagen que desees */
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Contenedor del formulario de inicio de sesión */
+  .login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+  }
+  
+  /* Título de la sección */
+  .login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Estilos de los campos de entrada */
+  .login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Botón de iniciar sesión */
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #333; /* Mismo color del fondo de la imagen */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: #555;
+  }
+  
+  /* Enlace para crear cuenta */
+  .create-account {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .create-account:hover {
+    text-decoration: underline;
+  }
+  
+
+
+
+
+
+  /* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Fondo de imagen */
+.login-background {
+    background-image: url('https://guerreroilustradora.wordpress.com/wp-content/uploads/2020/07/paisaje_guerrero_ilustradora_madrid_espac3b1a_disec3b1o_illustrator_2.jpg?w=1024'); 
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Animación de entrada */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Contenedor del formulario de inicio de sesión */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    text-align: center;
+    opacity: 0; /* Inicia invisible */
+    animation: slideDown 0.8s ease forwards; /* Aplica la animación al cargar */
+}
+
+/* Título de la sección */
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Estilos de los campos de entrada */
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Botón de iniciar sesión */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #333; /* Mismo color del fondo de la imagen */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #555;
+}
+
+/* Enlace para crear cuenta */
+.create-account, .login-account {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.create-account:hover, .login-account:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Estilo para el enlace de vuelta al inicio */
+.back-to-home {
+  position: fixed; /* Posición fija en la pantalla */
+  top: 10px; /* Espacio desde el borde superior */
+  left: 10px; /* Espacio desde el borde izquierdo */
+  display: inline-block;
+  z-index: 1000; /* Asegura que el enlace esté encima de otros elementos */
+}
+
+.back-to-home-img {
+  width: 100px; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+}
+
+/* Otros estilos... */

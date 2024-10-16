@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCraft</title>
+    <link rel="stylesheet" href="css/categorias.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <div class="logo-container">
+            <img src="imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft" class="logo-img">
+            <h1 class="logo" onclick="window.location.href='../Index.html'">CyberCraft</h1>
+        </div>
+        
+        <form action="Php/productos.php" method="GET">
+            <input type="text" name="query" placeholder="Buscar producto...">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <div class="cart-menu">
+            <div class="cart">
+            <button class="cart-button">🛒</button>
+            </div>
+            <div class="menu-toggle">
+            <button class="menu-button">☰</button>
+            </div>
+            
+            <!-- Botón "Hola" con menú desplegable -->
+            <div class="user-menu">
+                <button class="user-button">Hola, <span id="user-name">iniciar sesión</span></button>
+                <div class="dropdown hidden">
+                    <span id="user-name"></span> <!-- Aquí se mostrará el nombre del usuario -->
+                    <a href="sesion.html" class="dropdown-item">Iniciar sesión</a>
+                    <a href="registro.html" class="dropdown-item">Registrarse</a>
+                    <a href="micuenta.html" class="dropdown-item">Mi cuenta</a>
+                    <a href="Php/logout.php" class="dropdown-item">Cerrar sesión</a>
+                </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const userNameSpan = document.getElementById('user-name');
+                        const overlay = document.getElementById('overlay'); // Asegúrate de tener un overlay en tu HTML
+                        const userMenu = document.querySelector('.user-menu');
+                        const dropdown = document.querySelector('.dropdown');
+            
+                        // Recuperar el nombre del usuario desde PHP (si está autenticado)
+                        fetch('Php/get_user.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.user_name) {
+                                    userNameSpan.textContent = data.user_name; // Muestra el nombre del usuario
+                                } else {
+                                    userNameSpan.textContent = 'Iniciar sesión'; // Texto por defecto si no está autenticado
+                                }
+                            });
+            
+                        // Mostrar menú desplegable
+                        userMenu.addEventListener('click', function() {
+                            dropdown.classList.toggle('active');
+                            overlay.classList.toggle('active');
+                        });
+            
+                        // Ocultar menú y overlay al hacer clic fuera
+                        overlay.addEventListener('click', function() {
+                            dropdown.classList.remove('active');
+                            overlay.classList.remove('active');
+                        });
+            
+                        dropdown.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                    });
+                </script>
+        </div>
+
+
+
+        
+        <nav id="menu" class="menu hidden">
+        <button class="menu-close">×</button>
+        <ul>
+            <li><a href="categorias.html" class="menu-item">Categorías</a></li>
+            <li><a href="Asesoramiento/asesoramiento1.html" class="menu-item">Asesoramiento</a></li>
+            <li><a href="Asesoramiento/suscripcion.html" class="menu-item">Suscripción</a></li>
+            <li><a href="armado/armadopc.html" class="menu-item">Armado de PC</a></li>
+            <li><a href="Asesoramiento/rangoclientes.html" class="menu-item">Rango de clientes</a></li>
+            <li><a href="Asesoramiento/puntos.html" class="menu-item">Tienda de puntos</a></li>
+        </ul>     
+        </nav>
+        
+        <div id="overlay" class="overlay hidden"></div>
+    </header>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-transition');
+        });
+    </script>
+
+
+
+
+
+
+
+
+<div class="categories-container">
+    <h2>Categorías</h2>
+    <div class="category-grid">
+        <div class="category-item">
+            <a href="categorias/computadores-tablets">
+                <img src="https://img.freepik.com/vector-gratis/laptop-tablet-escritorio-movil_1284-3389.jpg?t=st=1726030686~exp=1726034286~hmac=2ac557a0c2c492c458d4a1e84c7e8d3be89f70e4b8ace381af2c80905e290dfb&w=996" alt="Computadores y Tablets">
+                <h3>Computadores y Tablets</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/notebooks">
+                <img src="https://assets.pcfactory.cl/public/foto/51868/1_500.jpg?t=1725147765505" alt="Notebooks">
+                <h3>Notebooks</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/softwares">
+                <img src="https://images.g2a.com/300x400/1x1x1/adobe-acrobat-pro-dc-2019-pc-1-device-lifetime-adobe-key-global-i10000502609001/495457e1db704209a1e3a735" alt="Softwares">
+                <h3>Softwares</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/tablets">
+                <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/16923274_1/w=1500,h=1500,fit=pad" alt="Tablets">
+                <h3>Tablets</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/servidores">
+                <img src="https://www.winpy.cl/files/34688-6743-Lenovo-ThinkSystem-ST250-V2-1.jpg" alt="Servidores">
+                <h3>Servidores</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/escritorio">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_979869-MLC73231264866_122023-O.webp" alt="Escritorio">
+                <h3>Escritorio</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/accesorios-tablets">
+                <img src="https://cdn.computerhoy.com/sites/navi.axelspringer.es/public/media/image/2012/10/2941-5-mejores-accesorios-basicos-tablets-android.jpg?tf=1200x" alt="Accesorios Tablets">
+                <h3>Accesorios Tablets</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/accesorios-notebooks">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_926521-MLC43430822931_092020-O.webp" alt="Accesorios Notebooks">
+                <h3>Accesorios Notebooks</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/mouses-teclados">
+                <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/113772654_01/w=1500,h=1500,fit=pad" alt="Mouses y Teclados">
+                <h3>Mouses y Teclados</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/ilustracion-diseno">
+                <img src="https://www.improma.com/wp-content/uploads/2019/02/adult-ai-artificial-intelligence-1020325-1024x780.jpg" alt="Ilustración y Diseño">
+                <h3>Ilustración y Diseño</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/codigos-digitales">
+                <img src="https://www.improma.com/wp-content/uploads/2019/02/adult-ai-artificial-intelligence-1020325-1024x780.jpg" alt="Códigos Digitales">
+                <h3>Códigos Digitales</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/partes-piezas-componentes">
+                <img src="https://d3okvk28mv0bs6.cloudfront.net/uploads/a5b1a28f-6f97-419e-a9c9-2fda27d08470/original/47656-Tarjeta_video-compra_por_categoria-Mundo-Componentes_partes_y_piezas.png" alt="Partes y Piezas / Componentes">
+                <h3>Partes y Piezas / Componentes</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/gabinetes">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_987180-MLU69361072657_052023-O.webp" alt="Gabinetes">
+                <h3>Gabinetes</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/procesadores">
+                <img src="https://f.media-amazon.com/images/I/51D3DrDmwkL.__AC_SX300_SY300_QL70_FMwebp_.jpg" alt="Procesadores">
+                <h3>Procesadores</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/placas-madres">
+                <img src="https://cdnx.jumpseller.com/centralgamer/image/33794488/resize/1200/1200?1680642843" alt="Placas Madres">
+                <h3>Placas Madres</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/memorias">
+                <img src="https://i0.wp.com/elprofealegria.com/wp-content/uploads/2021/01/Memoria-RAM.jpg?resize=673%2C421&ssl=1" alt="Memorias">
+                <h3>Memorias</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/almacenamiento/graficas.html">
+                <img src="https://www.vytcomputacion.cl/wp-content/uploads/2022/12/Captura-web_29-12-2022_214019_etchile.net_-300x300.jpeg" alt="Tarjetas Gráficas">
+                <h3>Tarjetas Gráficas</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/almacenamiento/almacentamiento.html">
+                <img src="https://i.ytimg.com/vi/7EVd0CO7Y5o/maxresdefault.jpg" alt="Almacenamiento">
+                <h3>Almacenamiento</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/fuentes-de-poder">
+                <img src="https://mgainformatik.com/image-blog/fuentes-poder-computadoras.jpg" alt="Fuentes de Poder (PSU)">
+                <h3>Fuentes de Poder (PSU)</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/refrigeracion">
+                <img src="https://f.media-amazon.com/images/I/81i8DvqAD8L.__AC_SX300_SY300_QL70_FMwebp_.jpg" alt="Refrigeración">
+                <h3>Refrigeración</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/opticos">
+                <img src="https://www.neoguias.com/wp-content/uploads/2018/02/que-es-unidad-disco-optico.jpg" alt="Ópticos">
+                <h3>Ópticos</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/sillas-gamer">
+                <img src="https://sipoonline.cl/wp-content/uploads/2020/08/Silla_gamer_kronos_hunter_time_profesional.jpg" alt="Sillas Gamer">
+                <h3>Sillas Gamer</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/tarjetas-expansion">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Ethernet_pci_card.jpg/350px-Ethernet_pci_card.jpg" alt="Tarjetas de Expansión">
+                <h3>Tarjetas de Expansión</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/capturadoras-video">
+                <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/116367899_01/w=800,h=800,fit=pad" alt="Capturadoras de Video">
+                <h3>Capturadoras de Video</h3>
+            </a>
+        </div>
+        <div class="category-item">
+            <a href="categorias/accesorios">
+                <img src="https://f.media-amazon.com/images/I/71TZUPSVEGL._AC_SX679_.jpg" alt="Accesorios">
+                <h3>Accesorios</h3>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft">
+        </div>
+        <div class="footer-links">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="categorias.html">Categorías</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Nuevos Lanzamientos</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="mailto:contacto@cybercraft.com">Email: cybercraft.dominio@gmail.com</a></li>
+                <li><a href="tel:+123456789">Teléfono: +569 12456789</a></li>
+                <li><a href="#">Ubicación</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h3>Síguenos</h3>
+            <ul>
+                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 CyberCraft. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="java/java.js"></script>
+</html>

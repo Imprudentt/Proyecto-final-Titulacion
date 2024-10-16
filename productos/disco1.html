@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCraft</title>
+    <link rel="stylesheet" href="../css/productos2.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <div class="logo-container">
+            <img src="../imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft" class="logo-img">
+            <h1 class="logo" onclick="window.location.href='../Index.html'">CyberCraft</h1>
+        </div>
+        
+        <form action="Php/productos.php" method="GET">
+            <input type="text" name="query" placeholder="Buscar producto...">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <div class="cart-menu">
+            <div class="cart">
+            <button class="cart-button">🛒</button>
+            </div>
+            <div class="menu-toggle">
+            <button class="menu-button">☰</button>
+            </div>
+            
+            <div class="user-menu">
+                <button class="user-button">Hola, <span id="user-name">iniciar sesión</span></button>
+                <div class="dropdown hidden">
+                    <span id="user-name"></span> <!-- Aquí se mostrará el nombre del usuario -->
+                    <a href="../sesion.html" class="dropdown-item">Iniciar sesión</a>
+                    <a href="../registro.html" class="dropdown-item">Registrarse</a>
+                    <a href="../micuenta.html" class="dropdown-item">Mi cuenta</a>
+                    <a href="../Php/logout.php" class="dropdown-item">Cerrar sesión</a>
+                </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const userNameSpan = document.getElementById('user-name');
+                        const overlay = document.getElementById('overlay'); // Asegúrate de tener un overlay en tu HTML
+                        const userMenu = document.querySelector('.user-menu');
+                        const dropdown = document.querySelector('.dropdown');
+            
+                        // Recuperar el nombre del usuario desde PHP (si está autenticado)
+                        fetch('../Php/get_user.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.user_name) {
+                                    userNameSpan.textContent = data.user_name; // Muestra el nombre del usuario
+                                } else {
+                                    userNameSpan.textContent = 'Iniciar sesión'; // Texto por defecto si no está autenticado
+                                }
+                            });
+            
+                        // Mostrar menú desplegable
+                        userMenu.addEventListener('click', function() {
+                            dropdown.classList.toggle('active');
+                            overlay.classList.toggle('active');
+                        });
+            
+                        // Ocultar menú y overlay al hacer clic fuera
+                        overlay.addEventListener('click', function() {
+                            dropdown.classList.remove('active');
+                            overlay.classList.remove('active');
+                        });
+            
+                        dropdown.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                    });
+                </script>
+        </div>
+        
+        <nav id="menu" class="menu hidden">
+        <button class="menu-close">×</button>
+        <ul>
+            <li><a href="../categorias.html" class="menu-item">Categorías</a></li>
+            <li><a href="../Asesoramiento/asesoramiento1.html" class="menu-item">Asesoramiento</a></li>
+            <li><a href="../Asesoramiento/suscripcion.html" class="menu-item">Suscripción</a></li>
+            <li><a href="../armado/armadopc.html" class="menu-item">Armado de PC</a></li>
+            <li><a href="../Asesoramiento/rangoclientes.html" class="menu-item">Rango de clientes</a></li>
+            <li><a href="../Asesoramiento/puntos.html" class="menu-item">Tienda de puntos</a></li>
+        </ul>       
+        </nav>
+        
+        <div id="overlay" class="overlay hidden"></div>
+    </header>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-transition');
+        });
+    </script>
+
+
+<div class="product-card">
+    <!-- Carrusel de Imágenes del Producto -->
+    <div class="product-images">
+        <div class="carousel">
+            <img src="https://static.pcfactory.cl/imagenes/lexar_pc_factory.jpg" alt="PC Gamer Ryzen 5 - Vista frontal" class="active">
+            <img src="https://assets.pcfactory.cl/public/foto/47937/1_100.jpg?t=1725146806588" alt="PC Gamer Ryzen 5 - Panel lateral">
+            <img src="https://assets.pcfactory.cl/public/foto/47937/2_500.jpg?t=1676896466221" alt="PC Gamer Ryzen 5 - Iluminación RGB">
+            <img src="https://assets.pcfactory.cl/public/foto/47937/3_500.jpg?t=1676896483240" alt="PC Gamer Ryzen 5 - Iluminación RGB">
+            
+        </div>
+        <div class="image-counter">1 / 3</div>
+        <!-- Flechas para navegación manual -->
+        <button class="carousel-prev">&lt;</button>
+        <button class="carousel-next">&gt;</button>
+    </div>
+
+    <!-- Información del Producto -->
+    <div class="product-info">
+        <h1>Unidad SSD 1TB Sata3 2.5" NS100</h1>
+        <p class="product-description"> La unidad SSD NS100 de 1TB ofrece un rendimiento rápido y confiable para mejorar la velocidad de tu sistema. Con una interfaz SATA III, proporciona velocidades de lectura de hasta 550 MB/s y velocidades de escritura de hasta 500 MB/s. Su factor de forma de 2.5" la hace compatible con la mayoría de las computadoras portátiles y de escritorio. Su resistencia de 128 TBW garantiza una durabilidad prolongada para tus datos.
+        </p>
+        <p><strong>Precio:</strong> <span class="price">$69.000</span></p>
+
+        <!-- Opciones de Entrega dentro del product-info -->
+        <div class="product-delivery-options">
+            <h3>Opciones de Entrega</h3>
+            <div class="delivery-option">
+                
+                <div class="delivery-option">
+                    <img src="../imagenes/pngegg_1.png" alt="Envío a domicilio">
+                    <a href="#" class="delivery-link" id="delivery-link">Envío a domicilio disponible</a>
+                </div>
+                
+                <!-- Modal -->
+                <div id="delivery-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Selecciona Región y Comuna</h2>
+                        <div class="selection-container">
+                            <div class="selection-box">
+                                <label for="region-select">Región:</label>
+                                <select id="region-select">
+                                    <option value="">Selecciona una región</option>
+                                    <option value="arica">Arica y Parinacota</option>
+                                    <option value="tarapacá">Tarapacá</option>
+                                    <option value="antofagasta">Antofagasta</option>
+                                    <option value="atacama">Atacama</option>
+                                    <option value="coquimbo">Coquimbo</option>
+                                    <option value="valparaiso">Valparaíso</option>
+                                    <option value="metropolitana">Metropolitana</option>
+                                    <option value="ohiggins">O'higgins</option>
+                                    <option value="maule">Maule</option>
+                                    <option value="ñuble">Ñuble</option>
+                                    <option value="biobio">Bio bío</option>
+                                    <option value="araucanía">La Araucania</option>
+                                    <option value="ríos">Los Ríos</option>
+                                    <option value="lagos">Los Lagos</option>
+                                    <option value="aysen">Aysén</option>
+                                    <option value="magallanes">Magallanes y Antártica Chilena</option>
+
+                                    <!-- Añadir más regiones aquí -->
+                                </select>
+                            </div>
+                            <div class="selection-box">
+                                <label for="comuna-select">Comuna:</label>
+                                <select id="comuna-select" disabled>
+                                    <option value="">Selecciona una comuna</option>
+                                    <!-- Las comunas se actualizarán dinámicamente -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="delivery-cost">
+                            <h3>Precio de Envío:</h3>
+                            <p id="cost-display">Selecciona una región y comuna para ver el costo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="delivery-option">
+                <img src="../imagenes/no-hay-stock.png" alt="No disponible para retiro">
+                <p>No disponible para retiro en tienda</p>
+            </div>
+        </div>
+
+
+
+        <!-- Especificaciones Detalladas -->
+        <div class="product-specs">
+            <h3>Especificaciones Técnicas:</h3>
+            <ul>
+                <li><strong>Marca:</strong> Lexar</li>
+                <li><strong>Capacidad:</strong> 1TB</li>
+                <li><strong>Interfaz:</strong> SATA III 6 GB/s</li>
+                <li><strong>Velocidad de Lectura:</strong> 550 MB/s</li>
+                <li><strong>Velocidad de Escritura:</strong> 500 MB/s</li>
+                <li><strong>Factor de Forma:</strong> 2,5"</li>
+                <li><strong>Dimensiones:</strong> 100,2 mm x 69,85 mm x 7 mm</li>
+                <li><strong>Peso:</strong> 34 g</li>
+                <li><strong>Resistencia:</strong> 128 TBW (Total Bytes Escritos)</li>
+            </ul>
+        </div>
+        <!-- Rating del Producto -->
+        <div class="product-rating">
+            <span class="stars">★★★★★</span> <span class="rating-text">(4.9/5) – 150 valoraciones</span>
+        </div>
+
+        <!-- Botón Añadir al Carrito -->
+        <button class="add-to-cart">Añadir al carrito</button>
+    </div>
+
+    <!-- Productos Relacionados -->
+    <div class="related-products">
+        <h3>Otros productos que te pueden interesar:</h3>
+        <div class="related-products-container">
+            <div class="related-item">
+                <img src="https://csbyte.cl/wp-content/uploads/2024/07/Portada-productos-6.png" alt="Teclado Mecánico RGB">
+                <p>Notebook Gamer ASUS ROG - <span class="related-price">$989.990</span></p>
+            </div>
+            <div class="related-item">
+                <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/119254326_01/w=1500,h=1500,fit=pad" alt="Monitor Gaming 4K">
+                <p>Pc Gamer Desktop Ryzen 5600GT - <span class="related-price">$476.280</span></p>
+            </div>
+            <div class="related-item">
+                <a href="../productos/producto4.html">
+                    <img src="https://cdnx.jumpseller.com/compuelite/image/52480793/thumb/610/610?1725317289" alt="Teclado Mecánico RGB">
+                </a>
+                <p>Pc Gamer Intel i7- <span class="related-price">$1.857.600</span></p>
+            </div>
+            
+            <div class="related-item">  
+                <img src="https://cdnx.jumpseller.com/compuelite/image/52482855/thumb/610/610?1725671339" alt="Monitor Gaming 4K">
+                <p>Pc Gamer Ryzen 5 5600X - <span class="related-price">$1,499.000 CLP</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="../imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft">
+        </div>
+        <div class="footer-links">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Nuevos Lanzamientos</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="mailto:contacto@cybercraft.com">Email: cybercraft.dominio@gmail.com</a></li>
+                <li><a href="tel:+123456789">Teléfono: +569 12456789</a></li>
+                <li><a href="#">Ubicación</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h3>Síguenos</h3>
+            <ul>
+                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 CyberCraft. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="../java/script.js"></script>
+</html>

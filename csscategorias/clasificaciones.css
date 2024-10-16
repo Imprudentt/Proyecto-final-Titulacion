@@ -1,0 +1,676 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+
+
+
+  header {
+    background-color: #68020f;
+    color: #000000;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.logo {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 24px;
+}
+
+.cart-button, .menu-button {
+    background: none;
+    border: none;
+    color: #000000;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cart-button:hover, .menu-button:hover {
+    color: #000000;
+}
+
+/* Menu styles */
+.menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: #68020f;
+    border-radius: 0 0 0 8px;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+    width: 250px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 20; 
+}
+
+.menu.hidden {
+    transform: translateX(100%);
+}
+
+.menu.visible {
+    transform: translateX(0);
+}
+
+.menu-close {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color 0.3s ease;
+}
+
+.menu-close:hover {
+    color: #ffffff;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.menu-item {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-item:hover {
+    background-color: #f21137;
+}
+
+/* Overlay styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 15; /* Ensures the overlay is above the content but below the menu */
+}
+
+.overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    .logo {
+        font-size: 20px;
+    }
+    
+    .menu {
+        width: 100%;
+    }
+}
+
+
+
+
+/* Estilo general del footer */
+.footer {
+    background-color: #1d1d1d;
+    color: #fff;
+    padding: 40px 0;
+    font-family: 'Arial', sans-serif;
+
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos para cada sección del footer */
+.footer-logo img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer-links, .footer-contact, .footer-social {
+    flex-basis: calc(25% - 20px);
+    margin-bottom: 20px;
+}
+
+/* Encabezados en el footer */
+.footer h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ff8c00;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Estilos para las listas */
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para los enlaces del footer */
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.footer ul li a:hover {
+    color: #ff8c00;
+}
+
+/* Estilos para los íconos sociales */
+.footer-social ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff8c00;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.footer-social ul li a:hover {
+    background-color: #ff4500;
+}
+
+/* Estilo para la parte inferior del footer */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #aaa;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links, .footer-contact, .footer-social {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        width: 120px;
+    }
+}
+
+
+
+
+
+
+
+
+/* Estilos generales */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #030303;
+    padding: 10px 20px;
+    color: white;  
+    width: 100%;
+    border-radius: 10px; 
+  }
+  
+  /* Contenedor del logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .logo {
+    font-size: 36px;
+    margin: 0;
+  }
+  
+  /* Barra de búsqueda */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 20px;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-button:hover {
+    background-color: #777;
+  }
+  
+  /* Carrito y menú */
+  .cart-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cart-button, .menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+  
+  .cart-button:hover, .menu-button:hover {
+    color: #ddd;
+}
+
+  /* Estilos del menú de usuario */
+.user-menu {
+    position: relative;
+    margin-left: 20px;
+}
+
+.user-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.user-button:hover + .dropdown, .dropdown.active {
+    display: block;
+}
+
+.dropdown {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #444;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+    z-index: 1;
+    display: none;
+    width: 200px;
+    transition: width 0.3s ease;
+}
+
+.dropdown-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.dropdown-item:hover {
+    background-color: #555;
+}
+
+.user-menu:hover .dropdown {
+    display: block;
+    width: 250px; /* Aumenta el tamaño de la ventana */
+}
+
+
+
+
+
+
+
+
+
+/* Animación de desplazamiento hacia abajo desde la parte superior */
+@keyframes slideInFromTop {
+    from {
+      transform: translateY(-3%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .page-transition {
+    animation: slideInFromTop 0.8s ease-out;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+}
+
+/* Contenedor del contenido entre el header y el footer */
+.content {
+    width: 100%; /* Ajusta el ancho del contenido */
+    max-width: 1200px; /* Limita el ancho máximo */
+    background-color: white;
+    border-radius: 15px; /* Más curvatura en los bordes */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Sombra más visible */
+    padding: 120px 250px; /* Aumenta el espacio interno */
+    margin: 50px 100px; /* Espacio superior e inferior más amplio */
+}
+
+/* Contenedor del podio */
+.podium {
+    display: flex;
+    justify-content: space-around; /* Distribuye las barras con espacio uniforme */
+    align-items: flex-end; /* Alinea todas al fondo */
+    width: 100%;
+    height: 300px; /* Define una altura consistente para el podio */
+    background-color: #f0f0f0; /* Fondo para que las barras toquen el final */
+    padding-bottom: 10px; /* Espacio inferior */
+    border-radius: 20px 20px 10px 10px;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 768px) {
+    .content {
+        width: 90%; /* Ancho más grande en pantallas pequeñas */
+        margin: 30px 0; /* Menor margen en dispositivos móviles */
+    }
+
+    .podium {
+        flex-direction: column; /* Cambia la disposición del podio a vertical */
+        align-items: center;
+    }
+}
+
+/* Estilos de cada posición */
+.position {
+    text-align: center;
+    position: relative;
+    width: 27%;
+
+}
+
+/* Imagen de usuario en círculo */
+.user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 10px;
+    object-fit: cover;
+}
+
+/* Nombre del usuario con enlace */
+.user-name {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.user-name:hover {
+    color: #68020f;
+}
+
+/* Medallas */
+.medal {
+    width: 50px;
+    position: absolute;
+    top: -20px;
+    left: calc(50% - 25px);
+}
+
+/* Elevaciones para las posiciones */
+.first {
+    transform: translateY(10px);
+}
+.second {
+    transform: translateY(10px);
+}
+.third {
+    transform: translateY(10px);
+}
+
+/* Barras de colores */
+.bar {
+    width: 45%;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 90px; /* Desplaza hacia la derecha */
+    border-radius: 10px 10px 0 0;
+}
+
+/* Colores de las barras */
+
+.silver {
+    background-color: #c0c0c0;
+    height: 170px;
+}
+.gold {
+    background-color: #ffd700;
+    height: 220px;
+}
+.bronze {
+    background-color: #cd7f32;
+    height: 100px;
+}
+
+
+
+
+
+
+
+/* Contenedor del formulario */
+form {
+    display: flex;
+    justify-content: center; /* Centra el formulario */
+}
+
+/* Estilos de la barra de búsqueda */
+input[type="text"] {
+    width: 100%;
+    max-width: 500px; /* Tamaño máximo de la barra de búsqueda */
+    padding: 12px 15px;
+    border: 2px solid #ddd; /* Borde gris claro */
+    border-radius: 8px 0 0 8px; /* Bordes redondeados a la izquierda */
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease; /* Transición suave cuando el borde cambia */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Efecto al hacer foco en la barra de búsqueda */
+input[type="text"]:focus {
+    border-color: #68020f; /* Cambia el color del borde al rojo de la página al hacer foco */
+}
+
+/* Estilos del botón de búsqueda */
+button[type="submit"] {
+    background-color: #68020f; /* Color de fondo del botón */
+    color: #fff; /* Color del texto */
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 0 8px 8px 0; /* Bordes redondeados a la derecha */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al hacer hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Efecto hover en el botón */
+button[type="submit"]:hover {
+    background-color: #c9983e; /* Cambia a un dorado suave al pasar el mouse */
+}
+
+/* Adaptación a dispositivos móviles */
+@media (max-width: 600px) {
+    input[type="text"] {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    button[type="submit"] {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+
+
+/* Contenedor para centrar la tabla */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0; /* Fondo oscuro para contraste */
+    border-radius: 10px;
+}
+
+/* Estilo de la tabla */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 2px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* Encabezado */
+thead th {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+/* Celdas del cuerpo */
+tbody td {
+    padding: 12px;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Alternar colores para distinguir filas */
+tbody tr:nth-child(even) {
+    background-color: #d6d6d6;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #b0b0b0;
+}
+
+.products-count {
+    margin-top: -15px; /* Ajustar hacia arriba para que quede más cerca de la barra */
+    font-size: 1rem; /* Tamaño de fuente más pequeño */
+    color: #000000; /* Color gris para diferenciar */
+    text-align: center; /* Centrado del texto */
+    position: relative; /* Permite mover el elemento */
+    z-index: 1; /* Asegura que esté por encima de la barra */
+}

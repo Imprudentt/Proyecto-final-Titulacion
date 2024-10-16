@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCraft</title>
+    <link rel="stylesheet" href="css/productos2.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <div class="logo-container">
+            <img src="imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft" class="logo-img">
+            <h1 class="logo" onclick="window.location.href='../Index.html'">CyberCraft</h1>
+        </div>
+        
+        <form action="Php/productos.php" method="GET">
+            <input type="text" name="query" placeholder="Buscar producto...">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <div class="cart-menu">
+            <div class="cart">
+            <button class="cart-button">🛒</button>
+            </div>
+            <div class="menu-toggle">
+            <button class="menu-button">☰</button>
+            </div>
+            
+            <!-- Botón "Hola" con menú desplegable -->
+            <div class="user-menu">
+            <button class="user-button">Hola, <span id="user-name">iniciar sesión</span></button>
+            <div class="dropdown hidden">
+                <a href="sesion.html" class="dropdown-item">Iniciar sesión</a>
+                <a href="registro.html" class="dropdown-item">Registrarse</a>
+                <a href="micuenta.html" class="dropdown-item">Mi cuenta</a>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+        <nav id="menu" class="menu hidden">
+        <button class="menu-close">×</button>
+        <ul>
+            <li><a href="#" class="menu-item">Categorías</a></li>
+            <li><a href="Asesoramiento/asesoramiento1.html" class="menu-item">Asesoramiento</a></li>
+            <li><a href="sesion.html" class="menu-item">Inicio de Sesión</a></li>
+            <li><a href="Asesoramiento/suscripcion.html" class="menu-item">Suscripción</a></li>
+            <li><a href="armado/armadopc.html" class="menu-item">Armado de PC</a></li>
+        </ul>
+        </nav>
+        
+        <div id="overlay" class="overlay hidden"></div>
+    </header>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-transition');
+        });
+    </script>
+

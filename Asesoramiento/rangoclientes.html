@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberCraft</title>
+    <link rel="stylesheet" href="../csscategorias/clasificaciones.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <div class="logo-container">
+            <img src="../imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft" class="logo-img">
+            <h1 class="logo" onclick="window.location.href='../Index.html'">CyberCraft</h1>
+        </div>
+        
+        <form action="Php/productos.php" method="GET">
+            <input type="text" name="query" placeholder="Buscar producto...">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <div class="cart-menu">
+            <div class="cart">
+            <button class="cart-button">🛒</button>
+            </div>
+            <div class="menu-toggle">
+            <button class="menu-button">☰</button>
+            </div>
+            
+            <!-- Botón "Hola" con menú desplegable -->
+            <div class="user-menu">
+                <button class="user-button">Hola, <span id="user-name">iniciar sesión</span></button>
+                <div class="dropdown hidden">
+                    <span id="user-name"></span> <!-- Aquí se mostrará el nombre del usuario -->
+                    <a href="../sesion.html" class="dropdown-item">Iniciar sesión</a>
+                    <a href="../registro.html" class="dropdown-item">Registrarse</a>
+                    <a href="../micuenta.html" class="dropdown-item">Mi cuenta</a>
+                    <a href="../Php/logout.php" class="dropdown-item">Cerrar sesión</a>
+                </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const userNameSpan = document.getElementById('user-name');
+                        const overlay = document.getElementById('overlay'); // Asegúrate de tener un overlay en tu HTML
+                        const userMenu = document.querySelector('.user-menu');
+                        const dropdown = document.querySelector('.dropdown');
+            
+                        // Recuperar el nombre del usuario desde PHP (si está autenticado)
+                        fetch('../Php/get_user.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.user_name) {
+                                    userNameSpan.textContent = data.user_name; // Muestra el nombre del usuario
+                                } else {
+                                    userNameSpan.textContent = 'Iniciar sesión'; // Texto por defecto si no está autenticado
+                                }
+                            });
+            
+                        // Mostrar menú desplegable
+                        userMenu.addEventListener('click', function() {
+                            dropdown.classList.toggle('active');
+                            overlay.classList.toggle('active');
+                        });
+            
+                        // Ocultar menú y overlay al hacer clic fuera
+                        overlay.addEventListener('click', function() {
+                            dropdown.classList.remove('active');
+                            overlay.classList.remove('active');
+                        });
+            
+                        dropdown.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                    });
+                </script>
+        </div>
+        
+        <nav id="menu" class="menu hidden">
+        <button class="menu-close">×</button>
+        <ul>
+            <li><a href="../categorias.html" class="menu-item">Categorías</a></li>
+            <li><a href="../Asesoramiento/asesoramiento1.html" class="menu-item">Asesoramiento</a></li>
+            <li><a href="../Asesoramiento/suscripcion.html" class="menu-item">Suscripción</a></li>
+            <li><a href="../armado/armadopc.html" class="menu-item">Armado de PC</a></li>
+            <li><a href="../Asesoramiento/rangoclientes.html" class="menu-item">Rango de clientes</a></li>
+            <li><a href="../Asesoramiento/puntos.html" class="menu-item">Tienda de puntos</a></li>
+        </ul>
+        </nav>
+        
+        <div id="overlay" class="overlay hidden"></div>
+    </header>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-transition');
+        });
+    </script>
+
+
+
+
+
+
+
+<div class="content">
+    <!-- Podio -->
+    <div class="podium">
+        <div class="position second">
+            <img src="../imagenes/medalla-plata-cinta-azul_1308-171675-removebg-preview.png" class="medal" alt="Silver Medal">
+            <img src="https://storage.googleapis.com/www-paredro-com/uploads/2015/08/shutterstock_188419790-e1439475344980.jpg" class="user-image" alt="User 2">
+            <a href="#" class="user-name">Fabricio Copano</a>
+            <div class="bar silver"></div>
+            <div class="products-count">Productos Comprados: 5</div> <!-- Nueva línea para productos comprados -->
+        </div>
+        <div class="position first">
+            <img src="../imagenes/1021220-removebg-preview.png" class="medal" alt="Gold Medal">
+            <img src="https://i0.wp.com/www.diarlu.com/wp-content/uploads/2019/09/rostro-mujer-adulta.jpg?resize=500%2C500&ssl=1" class="user-image" alt="User 1">
+            <a href="#" class="user-name">Jani Dueñas</a>
+            <div class="bar gold"></div>
+            <div class="products-count">Productos Comprados: 10</div> <!-- Nueva línea para productos comprados -->
+        </div>
+        <div class="position third">
+            <img src="../imagenes/png-clipart-bronze-medal-bronze-medal-award-bronze-medal-medal-trophies-thumbnail-removebg-preview.png" class="medal" alt="Bronze Medal">
+            <img src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm9zdHJvc3xlbnwwfHwwfHx8MA%3D%3D" class="user-image" alt="User 3">
+            <a href="../perfil.html" class="user-name">Felipe Avello</a>
+            <div class="bar bronze"></div>
+            <div class="products-count">P.C: 8</div> <!-- Nueva línea para productos comprados -->
+        </div>
+    </div>
+</div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Productos Comprados</th> <!-- Nueva columna -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas numeradas del 4 al 15 con productos comprados -->
+                <tr>
+                    <td>4</td>
+                    <td>Nombre Persona 4</td>
+                    <td>10</td> <!-- Productos comprados -->
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Nombre Persona 5</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Nombre Persona 6</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Nombre Persona 7</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Nombre Persona 8</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Nombre Persona 9</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Nombre Persona 10</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Nombre Persona 11</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Nombre Persona 12</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Nombre Persona 13</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Nombre Persona 14</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Nombre Persona 15</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft">
+            </div>
+            <div class="footer-links">
+                <h3>Productos</h3>
+                <ul>
+                    <li><a href="../categorias.html">Categorías</a></li>
+                    <li><a href="#">Ofertas</a></li>
+                    <li><a href="#">Nuevos Lanzamientos</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><a href="mailto:contacto@cybercraft.com">Email: cybercraft.dominio@gmail.com</a></li>
+                    <li><a href="tel:+123456789">Teléfono: +569 1122334455</a></li>
+                    <li><a href="https://www.google.com/maps/place/33%C2%B027'10.8%22S+70%C2%B041'23.7%22W/@-33.4529965,-70.6924819,17z/data=!3m1!4b1!4m13!1m8!3m7!1s0x9662c5410425af2f:0x8475d53c400f0931!2sSantiago,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.4488897!4d-70.6692655!16zL20vMGRscXY!3m3!8m2!3d-33.453001!4d-70.689907?entry=ttu&g_ep=EgoyMDI0MDkwOC4wIKXMDSoASAFQAw%3D%3D">Ubicación</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                    <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CyberCraft. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-transition');
+        });
+    </script>
+</div>
+</body>
+</html>

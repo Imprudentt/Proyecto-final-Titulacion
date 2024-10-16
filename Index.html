@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberCraft</title>
+  <link rel="stylesheet" href="css/indexcss.css">
+</head>
+<body>
+<header>
+    <div class="header-content">
+      <div class="logo-container">
+        <img src="imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft" class="logo-img">
+        <h1 class="logo" onclick="window.location.href='index.html'">CyberCraft</h1>
+      </div>
+      
+    <form action="Php/productos.php" method="GET">
+        <input type="text" name="query" placeholder="Buscar producto...">
+        <button type="submit">Buscar</button>
+    </form>
+      
+      
+    <div class="cart-menu">
+        <div class="cart">
+            <a href="Php/carrito.php">
+                <button class="cart-button">🛒</button>
+            </a>
+        </div>
+        <div class="menu-toggle">
+          <button class="menu-button">☰</button>
+        </div>
+            <!-- Botón "Hola" con menú desplegable -->
+            <div class="user-menu">
+            <button class="user-button">Hola, <span id="user-name">iniciar sesión</span></button>
+            <div class="dropdown hidden">
+                <span id="user-name"></span> <!-- Aquí se mostrará el nombre del usuario -->
+                <a href="sesion.html" class="dropdown-item">Iniciar sesión</a>
+                <a href="registro.html" class="dropdown-item">Registrarse</a>
+                <a href="micuenta.html" class="dropdown-item">Mi cuenta</a>
+                <a href="Php/logout.php" class="dropdown-item">Cerrar sesión</a>
+            </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const userNameSpan = document.getElementById('user-name');
+                    const overlay = document.getElementById('overlay'); // Asegúrate de tener un overlay en tu HTML
+                    const userMenu = document.querySelector('.user-menu');
+                    const dropdown = document.querySelector('.dropdown');
+        
+                    // Recuperar el nombre del usuario desde PHP (si está autenticado)
+                    fetch('Php/get_user.php')
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.user_name) {
+                                userNameSpan.textContent = data.user_name; // Muestra el nombre del usuario
+                            } else {
+                                userNameSpan.textContent = 'Iniciar sesión'; // Texto por defecto si no está autenticado
+                            }
+                        });
+        
+                    // Mostrar menú desplegable
+                    userMenu.addEventListener('click', function() {
+                        dropdown.classList.toggle('active');
+                        overlay.classList.toggle('active');
+                    });
+        
+                    // Ocultar menú y overlay al hacer clic fuera
+                    overlay.addEventListener('click', function() {
+                        dropdown.classList.remove('active');
+                        overlay.classList.remove('active');
+                    });
+        
+                    dropdown.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    
+    <nav id="menu" class="menu hidden">
+      <button class="menu-close">×</button>
+      <ul>
+        <li><a href="categorias.html" class="menu-item">Categorías</a></li>
+        <li><a href="Asesoramiento/asesoramiento1.html" class="menu-item">Asesoramiento</a></li>
+        <li><a href="Asesoramiento/suscripcion.html" class="menu-item">Suscripción</a></li>
+        <li><a href="armado/armadopc.php" class="menu-item">Armado de PC</a></li>
+        <li><a href="Asesoramiento/rangoclientes.html" class="menu-item">Rango de clientes</a></li>
+        <li><a href="Asesoramiento/puntos.html" class="menu-item">Tienda de puntos</a></li>
+      </ul>
+    </nav>
+    
+    <div id="overlay" class="overlay hidden"></div>
+  </header>
+  
+  <!-- Carousel Section -->
+  <section class="carousel">
+    <div class="image-slider">
+      <img src="imagenes/w=1500,h=1500,fit=pad.avif" alt="Imagen 1">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/06/CSBYTE-productos-parte-2-2-1.png" alt="Imagen 2">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/04/CSBYTE-imagenes-productos-5.png" alt="Imagen 3">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/05/1-29.png" alt="Imagen 4">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/05/2-30.png" alt="Imagen 5">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/07/WhatsApp-Image-2024-07-04-at-1.13.36-PM.jpeg" alt="Imagen 6">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/08/2-6.png" alt="Imagen 7">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/06/1-22-430x430.png" alt="Imagen 8">
+      <img src="https://csbyte.cl/wp-content/uploads/2024/07/Portada-productos-6.png" alt="Imagen 9">
+      <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/119254326_01/w=1500,h=1500,fit=pad" alt="Imagen 10">
+      <img src="https://cdnx.jumpseller.com/compuelite/image/52482855/thumb/610/610?1725671339" alt="Imagen 11">
+  </div>
+  <button class="slider-button slider-prev">&lt;</button>
+  <button class="slider-button slider-next">&gt;</button>
+  </section>
+  <!-- Products Section -->
+  <section class="products">
+    <h2>¡¡Los Productos más Vendidos!!</h2>
+    <div class="products-container">
+        <div class="product-item">
+            <a href="productos/producto.html">
+                <img src="https://csbyte.cl/wp-content/uploads/2024/08/2-6.png" alt="Producto 1">
+            </a>
+            <h3>Notebook Gamer ASUS TUF A15 FA506NF-HN003W</h3>
+            <p>Valor: $796.990</p>
+            <button class="add-to-cart" onclick="addToCart('Notebook Gamer ASUS TUF A15', 796990)">Añadir al carrito</button>
+        </div>
+        
+        <script>
+            function addToCart(nombre, precio) {
+    fetch('carrito.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+            nombre: nombre,
+            precio: precio
+        })
+    })
+    .then(response => response.json()) // Procesar la respuesta como JSON
+    .then(data => {
+        console.log(data); // Imprimir la respuesta en la consola
+        if (data.status === 'success') {
+            alert(data.message); // Mostrar mensaje de éxito
+        } else {
+            alert('Hubo un error al añadir el producto');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+        </script>
+      <div class="product-item">
+          <a href="productos/producto1.html">
+              <img src="https://csbyte.cl/wp-content/uploads/2024/06/1-22-430x430.png" alt="Producto 2">
+          </a>
+          <h3>Notebook HP Probook 640 G1 (Pantalla LED de 14″, Intel Core i7 de 4° Gen, 16gb DDR3, 120gb SSD, Windows 10 Pro) Seminuevo</h3>
+          <p>Valor $185.000</p>
+          <button class="add-to-cart" onclick="window.location.href='/productos/producto1.html'">Ver producto</button>
+      </div>
+      <div class="product-item">
+          <a href="productos/producto2.html">
+              <img src="https://csbyte.cl/wp-content/uploads/2024/07/Portada-productos-6.png" alt="Producto 3">
+          </a>
+          <h3>Notebook Gamer ASUS ROG Strix G15 G513RW-HQ064W</h3>
+          <p>Valor $989.990</p>
+          <button class="add-to-cart" onclick="window.location.href='/productos/producto2.html'">Ver producto</button>
+      </div>
+      <div class="product-item">
+          <a href="productos/producto3.html">
+              <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/119254326_01/w=1500,h=1500,fit=pad" alt="Producto 4">
+          </a>
+          <h3>PC Gamer Amd Ryzen 5 5600GT 6-Core + RADEON + A520 WIFI + 16GB DDR4 + SSD 500GB</h3>
+          <p>Valor $476.280</p>
+          <button class="add-to-cart" onclick="window.location.href='/productos/producto3.html'">Ver producto</button>
+      </div>
+      <div class="product-item">
+          <a href="productos/producto4.html">
+              <img src="https://cdnx.jumpseller.com/compuelite/image/52480793/thumb/610/610?1725317289" alt="Producto 5">
+          </a>
+          <h3>PC Gamer Intel i7 12700F 12-core + B760 WIFI+BT + 32GB DDR5 + RTX 4070 12GB</h3>
+          <p>Valor $1.857.600 CLP</p>
+          <button class="add-to-cart" onclick="window.location.href='/productos/producto4.html'">Ver producto</button>
+      </div>
+      <div class="product-item">
+          <a href="productos/producto5.html">
+              <img src="https://cdnx.jumpseller.com/compuelite/image/52482855/thumb/610/610?1725671339" alt="Producto 6">
+          </a>
+          <h3>PC Gamer Amd Ryzen 5 5600X 6-Core + B550 WIFI + 16GB DDR4 + RTX 3060 12GB</h3>
+          <p>Valor $1,499.000 CLP</p>
+          <button class="add-to-cart" onclick="window.location.href='/productos/producto5.html'">Ver producto</button>
+      </div>
+  </div>
+  </section>
+  <div class="services-container">
+    <h2 class="services-title">Servicios</h2>
+    <div class="services-grid"> 
+        <div class="service-item">
+            <a href="Asesoramiento/asesoramiento1.html">
+                <img src="https://d3okvk28mv0bs6.cloudfront.net/uploads/9f2bf22b-0b46-43b0-970c-019ba9d29fc2/original/NUEVA_WEB_BIG_466x630_Verde_asesorate_online.jpg" alt="Servicio 1">
+            </a>
+        </div>
+        <div class="service-item">
+            <a href="#">
+                <img src="https://d3okvk28mv0bs6.cloudfront.net/uploads/7413b155-9b4a-4f01-a10d-a892379982b1/original/NUEVA_WEB_BIG_466x630_Amarillo_consejos_y_tips_tecnologicos.jpg" alt="Servicio 2">
+            </a>
+        </div>
+        <div class="service-item">
+            <a href="armado/armadopc.html">
+                <img src="https://d3okvk28mv0bs6.cloudfront.net/uploads/c3027704-13e9-4f20-96b6-1b17d4275442/original/NUEVA_WEB_BIG_466x630_Amarillo_arma_tu_pc.jpg" alt="Servicio 3">
+            </a>
+        </div>
+        <div class="service-item">
+            <a href="servicio4.html">
+                <img src="https://d3okvk28mv0bs6.cloudfront.net/uploads/c8a09ac7-2751-46d1-aefb-0d401093ef68/original/NUEVA_WEB_BIG_466x630_Amarillo_seguir_mi_pedido.jpg" alt="Servicio 4">
+            </a>
+        </div>
+    </div>
+  </div>
+  <div class="main-section">
+        <h2 class="section-heading">Nuestros Productos</h2>
+    <div class="product-display">
+        <a href="productos/disco1.html" class="item-card">
+            <img src="https://assets.pcfactory.cl/public/foto/47937/1_500.jpg?t=1725146806823" alt="Disco Duro 1">
+            <h3>Unidad SSD 1TB Sata3</h3>
+            <p class="item-price">$69.000</p>
+            <button class="add-to-cart">Añadir al carrito</button>
+        </a>
+        <a href="productos/disco1 copy.html" class="item-card">
+            <img src="https://assets.pcfactory.cl/public/foto/25412/1_500.jpg?t=1725370604785" alt="Disco Duro 2">
+            <h3>Disco Externo 1TB 2.5</h3>
+            <p class="item-price">$67.790</p>
+            <button class="add-to-cart">Añadir al carrito</button>
+        </a>
+        <a href="productos/disco1 copy 2.html" class="item-card">
+            <img src="https://assets.pcfactory.cl/public/foto/47492/1_500.jpg?t=1725146700651" alt="Disco Duro 3">
+            <h3>Unidad SSD 500GB PCIe</h3>
+            <p class="item-price">$64.000</p>
+            <button class="add-to-cart">Añadir al carrito</button>
+        </a>
+        <a href="productos/disco1 copy 3.html" class="item-card">
+            <img src="https://assets.pcfactory.cl/public/foto/45778/1_500.jpg?t=1725146438915" alt="Disco Duro 4">
+            <h3>Disco Duro SSD 480GB</h3>
+            <p class="item-price">$40.990</p>
+            <button class="add-to-cart">Añadir al carrito</button>
+        </a>
+        <a href="productos/disco1 copy 4.html" class="item-card">
+            <img src="https://assets.pcfactory.cl/public/foto/45528/1_500.jpg?t=1725961634441" alt="Disco Duro 5">
+            <h3>Unidad SSD 240GB Sata3 2.5" Green</h3>
+            <p class="item-price">$29.990</p>
+            <button class="add-to-cart">Añadir al carrito</button>
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="categories-container">
+  <h2 class="lelepancha">Categorías</h2>
+  <div class="category-grid">
+      <div class="category-item">
+          <a href="categorias/almacenamiento/computadores.html">
+              <img src="https://img.freepik.com/vector-gratis/laptop-tablet-escritorio-movil_1284-3389.jpg?t=st=1726030686~exp=1726034286~hmac=2ac557a0c2c492c458d4a1e84c7e8d3be89f70e4b8ace381af2c80905e290dfb&w=996" alt="Computadores y Tablets">
+              <h3>Computadores y Tablets</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/notebooks">
+              <img src="https://assets.pcfactory.cl/public/foto/51868/1_500.jpg?t=1725147765505" alt="Notebooks">
+              <h3>Notebooks</h3>
+          </a>
+      </div>
+    
+      <div class="category-item">
+          <a href="categorias/tablets">
+              <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/16923274_1/w=1500,h=1500,fit=pad" alt="Tablets">
+              <h3>Tablets</h3>
+          </a>
+      </div>
+      
+      <div class="category-item">
+          <a href="categorias/mouses-teclados">
+              <img src="https://imagedelivery.net/4fYuQyy-r8_rpBpcY7lH_A/falabellaCL/113772654_01/w=1500,h=1500,fit=pad" alt="Mouses y Teclados">
+              <h3>Mouses y Teclados</h3>
+          </a>
+      </div>
+      
+      <div class="category-item">
+          <a href="categorias/partes-piezas-componentes">
+              <img src="https://d3okvk28mv0bs6.cloudfront.net/uploads/a5b1a28f-6f97-419e-a9c9-2fda27d08470/original/47656-Tarjeta_video-compra_por_categoria-Mundo-Componentes_partes_y_piezas.png" alt="Partes y Piezas / Componentes">
+              <h3>Partes y Piezas / Componentes</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/gabinetes">
+              <img src="https://http2.mlstatic.com/D_NQ_NP_987180-MLU69361072657_052023-O.webp" alt="Gabinetes">
+              <h3>Gabinetes</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/almacenamiento/procesador.html">
+              <img src="https://f.media-amazon.com/images/I/51D3DrDmwkL.__AC_SX300_SY300_QL70_FMwebp_.jpg" alt="Procesadores">
+              <h3>Procesadores</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/placas-madres">
+              <img src="https://cdnx.jumpseller.com/centralgamer/image/33794488/resize/1200/1200?1680642843" alt="Placas Madres">
+              <h3>Placas Madres</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/memorias">
+              <img src="https://i0.wp.com/elprofealegria.com/wp-content/uploads/2021/01/Memoria-RAM.jpg?resize=673%2C421&ssl=1" alt="Memorias">
+              <h3>Memorias</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/almacenamiento/graficas.html">
+              <img src="https://www.vytcomputacion.cl/wp-content/uploads/2022/12/Captura-web_29-12-2022_214019_etchile.net_-300x300.jpeg" alt="Tarjetas Gráficas">
+              <h3>Tarjetas Gráficas</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/almacenamiento/almacentamiento.html">
+              <img src="https://i.ytimg.com/vi/7EVd0CO7Y5o/maxresdefault.jpg" alt="Almacenamiento">
+              <h3>Almacenamiento</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/fuentes-de-poder">
+              <img src="https://mgainformatik.com/image-blog/fuentes-poder-computadoras.jpg" alt="Fuentes de Poder (PSU)">
+              <h3>Fuentes de Poder (PSU)</h3>
+          </a>
+      </div>
+      <div class="category-item">
+          <a href="categorias/refrigeracion">
+              <img src="https://f.media-amazon.com/images/I/81i8DvqAD8L.__AC_SX300_SY300_QL70_FMwebp_.jpg" alt="Refrigeración">
+              <h3>Refrigeración</h3>
+          </a>
+      </div>
+      
+      <div class="category-item">
+          <a href="categorias/sillas-gamer">
+              <img src="https://sipoonline.cl/wp-content/uploads/2020/08/Silla_gamer_kronos_hunter_time_profesional.jpg" alt="Sillas Gamer">
+              <h3>Sillas Gamer</h3>
+          </a>
+      </div>
+      
+      <div class="category-item">
+          <a href="categorias/accesorios">
+              <img src="https://f.media-amazon.com/images/I/71TZUPSVEGL._AC_SX679_.jpg" alt="Accesorios">
+              <h3>Accesorios</h3>
+          </a>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft">
+        </div>
+        <div class="footer-links">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="/categorias.html">Categorías</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Nuevos Lanzamientos</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="mailto:contacto@cybercraft.com">Email: cybercraft.dominio@gmail.com</a></li>
+                <li><a href="tel:+123456789">Teléfono: +569 1122334455</a></li>
+                <li><a href="https://www.google.com/maps/place/33%C2%B027'10.8%22S+70%C2%B041'23.7%22W/@-33.4529965,-70.6924819,17z/data=!3m1!4b1!4m13!1m8!3m7!1s0x9662c5410425af2f:0x8475d53c400f0931!2sSantiago,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.4488897!4d-70.6692655!16zL20vMGRscXY!3m3!8m2!3d-33.453001!4d-70.689907?entry=ttu&g_ep=EgoyMDI0MDkwOC4wIKXMDSoASAFQAw%3D%3D">Ubicación</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h3>Síguenos</h3>
+            <ul>
+                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 CyberCraft. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('page-transition');
+    });
+  </script>
+  
+</body>
+<script src="java/java.js"></script>
+</body>
+</html>

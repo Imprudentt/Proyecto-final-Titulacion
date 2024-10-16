@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="CyberCraft: Asesoramiento y productos tecnológicos.">
+    <title>CyberCraft</title>
+    <link rel="stylesheet" href="../css/asesoramiento.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <div class="logo-container">
+            <img src="../imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft" class="logo-img">
+            <h1 class="logo" onclick="window.location.href='../Index.html'">CyberCraft</h1>
+        </div>
+        
+        <form action="Php/productos.php" method="GET">
+            <input type="text" name="query" placeholder="Buscar producto...">
+            <button type="submit">Buscar</button>
+        </form>
+        
+        <div class="cart-menu">
+            <div class="cart">
+            <button class="cart-button">🛒</button>
+            </div>
+            <div class="menu-toggle">
+            <button class="menu-button">☰</button>
+            </div>
+            
+            <div class="user-menu">
+                <button class="user-button">Hola, <span id="user-name">iniciar sesión</span></button>
+                <div class="dropdown hidden">
+                    <span id="user-name"></span> <!-- Aquí se mostrará el nombre del usuario -->
+                    <a href="../sesion.html" class="dropdown-item">Iniciar sesión</a>
+                    <a href="../registro.html" class="dropdown-item">Registrarse</a>
+                    <a href="../micuenta.html" class="dropdown-item">Mi cuenta</a>
+                    <a href="../Php/logout.php" class="dropdown-item">Cerrar sesión</a>
+                </div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const userNameSpan = document.getElementById('user-name');
+                        const overlay = document.getElementById('overlay'); // Asegúrate de tener un overlay en tu HTML
+                        const userMenu = document.querySelector('.user-menu');
+                        const dropdown = document.querySelector('.dropdown');
+            
+                        // Recuperar el nombre del usuario desde PHP (si está autenticado)
+                        fetch('../Php/get_user.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.user_name) {
+                                    userNameSpan.textContent = data.user_name; // Muestra el nombre del usuario
+                                } else {
+                                    userNameSpan.textContent = 'Iniciar sesión'; // Texto por defecto si no está autenticado
+                                }
+                            });
+            
+                        // Mostrar menú desplegable
+                        userMenu.addEventListener('click', function() {
+                            dropdown.classList.toggle('active');
+                            overlay.classList.toggle('active');
+                        });
+            
+                        // Ocultar menú y overlay al hacer clic fuera
+                        overlay.addEventListener('click', function() {
+                            dropdown.classList.remove('active');
+                            overlay.classList.remove('active');
+                        });
+            
+                        dropdown.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                    });
+                </script>
+        </div>
+        
+        <nav id="menu" class="menu hidden">
+        <button class="menu-close">×</button>
+        <ul>
+            <li><a href="../categorias.html" class="menu-item">Categorías</a></li>
+            <li><a href="../Asesoramiento/asesoramiento1.html" class="menu-item">Asesoramiento</a></li>
+            <li><a href="../Asesoramiento/suscripcion.html" class="menu-item">Suscripción</a></li>
+            <li><a href="../armado/armadopc.html" class="menu-item">Armado de PC</a></li>
+            <li><a href="../Asesoramiento/rangoclientes.html" class="menu-item">Rango de clientes</a></li>
+            <li><a href="../Asesoramiento/puntos.html" class="menu-item">Tienda de puntos</a></li>
+        </ul>
+        </nav>
+        
+        <div id="overlay" class="overlay hidden"></div>
+    </header>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('page-transition');
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+<div class="advisors-section">
+    <h1 class="advisors-title">Nuestro personal de Asesoramiento</h1>
+
+    <div class="advisors-container">
+        <div class="advisor-card">
+            <div class="image-circle">
+                <img src="https://www.achm.cl/wp-content/uploads/2023/03/Mafalda-Fabbri.png" alt="Asesor 1">
+            </div>
+            <h3>Paulina Velásquez</h3>
+            <p><strong>Especialización:</strong> Optimización de hardware y asesoría en componentes avanzados.</p>
+            <button class="toggle-form">Contactar</button>
+            <div class="advisor-details">
+                <p><strong>Email:</strong> paulina@example.com</p>
+                <p><strong>Teléfono:</strong> +56 9 1234 5678</p>
+                <textarea placeholder="Escribe tu comentario o duda aquí..."></textarea>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+
+        <div class="advisor-card">
+            <div class="image-circle">
+                <img src="https://www.achm.cl/wp-content/uploads/2023/03/Abel-Contreras.png" alt="Asesor 2">
+            </div>
+            <h3>David Franzua</h3>
+            <p><strong>Especialización:</strong> Seguridad informática y análisis de vulnerabilidades.</p>
+            <button class="toggle-form">Contactar</button>
+            <div class="advisor-details">
+                <p><strong>Email:</strong> david@example.com</p>
+                <p><strong>Teléfono:</strong> +56 9 8765 4321</p>
+                <textarea placeholder="Escribe tu comentario o duda aquí..."></textarea>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+
+        <div class="advisor-card">
+            <div class="image-circle">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_8vXjIryVzY7ns92WBN0eSlnkecDvscRtmlrvAQiff3l7RcllUjHdcn4_27S3xN153Gw&usqp=CAU" alt="Asesor 3">
+            </div>
+            <h3>Jorge Pérez</h3>
+            <p><strong>Especialización:</strong> Inteligencia artificial y desarrollo de software especializado.</p>
+            <button class="toggle-form">Contactar</button>
+            <div class="advisor-details">
+                <p><strong>Email:</strong> jorge@example.com</p>
+                <p><strong>Teléfono:</strong> +56 9 1122 3344</p>
+                <textarea placeholder="Escribe tu comentario o duda aquí..."></textarea>
+                <button type="submit">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="../imagenes/LOGOCYBERCRAFT-removebg-preview.png" alt="Logo CyberCraft">
+        </div>
+        <div class="footer-links">
+            <h3>Productos</h3>
+            <ul>
+                <li><a href="#">Categorías</a></li>
+                <li><a href="#">Ofertas</a></li>
+                <li><a href="#">Nuevos Lanzamientos</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3>Contacto</h3>
+            <ul>
+                <li><a href="mailto:contacto@cybercraft.com">Email: cybercraft.dominio@gmail.com</a></li>
+                <li><a href="tel:+123456789">Teléfono: +569 12456789</a></li>
+                <li><a href="#">Ubicación</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h3>Síguenos</h3>
+            <ul>
+                <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 CyberCraft. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+<script src="../java/sus.js"></script>
+</html>

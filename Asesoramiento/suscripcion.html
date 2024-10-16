@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suscríbete a CyberCraft</title>
+    <link rel="stylesheet" href="../css/suscripcion.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Suscríbete a CyberCraft y obtén innumerables beneficios</h1>
+
+        <form id="subscribe-form">
+            <!-- Nombre -->
+            <div class="form-group">
+                <label for="first-name">Nombre:</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+
+            <!-- Apellido -->
+            <div class="form-group">
+                <label for="last-name">Apellido:</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <!-- Fecha de nacimiento -->
+            <div class="form-group">
+                <label for="birthdate">Fecha de nacimiento:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+            </div>
+
+            <!-- Comuna -->
+            <div class="form-group">
+                <label for="comuna">Comuna de residencia:</label>
+                <input type="text" id="comuna" name="comuna" required>
+            </div>
+
+            <!-- Intereses -->
+            <div class="form-group">
+                <label for="interests">Selecciona lo que más te interesa:</label>
+                <select id="interests" name="interests[]" multiple required>
+                    <option value="promociones-ofertas">Promociones y Ofertas</option>
+                    <option value="celulares">Celulares</option>
+                    <option value="computadores-tablets">Computadores y Tablets</option>
+                    <option value="componentes-piezas">Componentes / Partes y Piezas</option>
+                    <option value="conectividad-redes">Conectividad y Redes</option>
+                    <option value="discos-almacenamiento">Discos Duros y Almacenamiento</option>
+                    <option value="impresoras-suministros">Impresoras y Suministros</option>
+                    <option value="monitores-proyectores">Monitores y Proyectores</option>
+                    <option value="oficinas-venta">Oficinas y Puntos de Venta</option>
+                    <option value="software">Softwares</option>
+                    <option value="tv-smart-tv">TV y Smart TV</option>
+                    <option value="accesorios-perifericos">Accesorios y Periféricos</option>
+                    <option value="audio">Audio</option>
+                    <option value="automovil">Automóvil</option>
+                    <option value="fotografia-video-drones">Fotografía, Video y Drones</option>
+                    <option value="juegos-consolas">Juegos y Consolas</option>
+                    <option value="seguridad">Seguridad</option>
+                </select>
+            </div>
+
+            <!-- Botón para guardar cambios -->
+            <div class="form-group">
+                <button type="submit" id="save-changes">Guardar Cambios</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../java/sus.js"></script>
+</body>
+</html>
